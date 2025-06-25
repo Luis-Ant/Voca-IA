@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS # Importar CORS para permitir solicitudes desde tu frontend React
 
 app = Flask(__name__)
-CORS(app, origins="*")
+CORS(app, origins=["https://voca-ia.onrender.com"])
 
 # Preguntas generales por rama
 preguntas_generales = {
