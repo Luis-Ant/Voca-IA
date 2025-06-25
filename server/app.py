@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS # Importar CORS para permitir solicitudes desde tu frontend React
 
 app = Flask(__name__)
-CORS(app) # Habilitar CORS para todas las rutas
+CORS(app, origins="*")
 
 # Preguntas generales por rama
 preguntas_generales = {
