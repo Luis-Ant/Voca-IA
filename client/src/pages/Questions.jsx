@@ -5,6 +5,8 @@ import Progress from "../components/Progress.jsx";
 import { motion, useAnimationControls } from "framer-motion";
 
 export default function Questions() {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const { answers, setAnswers, selectedRama, setSelectedRama } =
     useContext(AppContext);
   const navigate = useNavigate();
@@ -180,7 +182,7 @@ export default function Questions() {
 
       console.log("Enviando a /api/evaluar_ramas:", answersPayload);
 
-      const response = await fetch("http://127.0.0.1:5000/api/evaluar_ramas", {
+      const response = await fetch(`${apiUrl}/api/evaluar_ramas`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -256,16 +258,13 @@ export default function Questions() {
 
       console.log("Enviando a /api/evaluar_carrera:", payload);
 
-      const response = await fetch(
-        "http://127.0.0.1:5000/api/evaluar_carrera",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/evaluar_carrera`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -298,9 +297,7 @@ export default function Questions() {
     const fetchInitialQuestions = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(
-          "http://127.0.0.1:5000/api/preguntas_generales"
-        );
+        const response = await fetch(`${apiUrl}/api/preguntas_generales`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
