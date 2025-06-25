@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useState } from "react";
-import Home from "./pages/Home";
-import Questions from "./pages/Questions";
+import Home from "./pages/Home.jsx";
+import Questions from "./pages/Questions.jsx";
+import Results from "./pages/Resultado.jsx";
 
 export const AppContext = createContext();
 
@@ -28,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/questions" element={<Questions />} />
-          {/* <Route path="/results" element={<Results />} /> */}
+          <Route path="/results" element={<Results />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>
