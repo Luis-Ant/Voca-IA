@@ -292,6 +292,10 @@ export default function Questions() {
 
   // --- useEffect Hooks para control de flujo y UI ---
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // 1. Efecto para la carga inicial de preguntas generales desde la API
   useEffect(() => {
     const fetchInitialQuestions = async () => {

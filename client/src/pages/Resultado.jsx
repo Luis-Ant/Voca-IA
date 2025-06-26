@@ -73,6 +73,10 @@ export default function QuizResults() {
     },
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Manejo básico de si no hay resultado (ej. acceso directo a la URL)
   if (!result) {
     return (

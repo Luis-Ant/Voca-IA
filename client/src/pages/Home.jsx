@@ -75,6 +75,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const sequence = async () => {
       await titleControls.start("visible");
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Espera 1.5 segundos antes de iniciar la animación del subtítulo
