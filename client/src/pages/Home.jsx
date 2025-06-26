@@ -158,7 +158,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-center p-4">
                   <span className="text-5xl md:text-6xl font-thin text-gray-200 mb-2">
-                    250+
+                    75+
                   </span>
                   <span className="text-gray-500 font-extralight text-sm md:text-base tracking-wider">
                     Carreras Sugeridas por IA

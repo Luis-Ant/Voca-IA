@@ -8,16 +8,23 @@ CORS(app, origins=["https://voca-ia.onrender.com"])
 preguntas_generales = {
     "Ingeniería y Ciencias Físico Matemáticas": [
         "¿Te interesa cómo funcionan las máquinas?",
-        "¿Disfrutas resolver problemas matemáticos complejos?","¿Te gusta conocer las nuevas tecnologías?",
+        "¿Disfrutas resolver problemas matemáticos complejos?",
+        "¿Te gusta conocer las nuevas tecnologías?",
         "¿Te interesa conocer cómo se crean las nuevas tecnologías?",
         "¿Te gustan la física o las matemáticas?",
-        "¿Te gusta realizar experimentos?"
+        "¿Te gusta realizar experimentos?",
+        "¿Te gustaría diseñar soluciones tecnológicas para problemas cotidianos?",
+        "¿Te interesa la investigación científica y el desarrollo de nuevas teorías?",
+        "¿Te motiva trabajar en proyectos de innovación tecnológica?"
     ],
     "Ciencias Médico Biológicas": [
         "¿Te interesa el funcionamiento del cuerpo humano?",
         "¿Te gustaría trabajar en un hospital o laboratorio clínico?",
         "¿Te preocupas por la salud y el bienestar de las personas?",
-        "¿Te interesan los animales?"
+        "¿Te interesan los animales?",
+        "¿Te gustaría investigar sobre nuevas enfermedades y tratamientos?",
+        "¿Te interesa la genética y la biotecnología?",
+        "¿Te gustaría participar en campañas de salud pública?"
     ],
     "Ciencias Sociales y Administrativas": [
         "¿Te interesa liderar equipos o proyectos?",
@@ -25,7 +32,10 @@ preguntas_generales = {
         "¿Eres organizado con tareas y tiempos?",
         "¿Te gusta exponer en las clases?",
         "¿Te gusta comunicarte con las personas y trabajar en equipo?",
-        "¿Disfrutas analizar la sociedad y su funcionamiento?"
+        "¿Disfrutas analizar la sociedad y su funcionamiento?",
+        "¿Te interesa comprender el comportamiento de grupos sociales?",
+        "¿Te gustaría emprender tu propio negocio?",
+        "¿Te motiva influir en políticas públicas o sociales?"
     ]
 }
 
@@ -33,239 +43,163 @@ preguntas_generales = {
 ramas = {
     "Ingeniería y Ciencias Físico Matemáticas": {
         "carreras": {
-            "Ingeniería Automotriz": [
-                "¿Te gustaría conocer el funcionamiento de los carros?",
-                "¿Te interesa el diseño de motores y sistemas mecánicos?",
-                "¿Te gustaría trabajar en una armadora de autos?"
-            ],
-            "Ingeniería Civil": [
-                "¿Te interesa diseñar puentes, carreteras o edificios?",
-                "¿Te gustaría trabajar en obras de construcción?",
-                "¿Te interesa la física aplicada a estructuras?"
-            ],
-            "Ingeniería en Computación":[
-                "¿Te interesa programar?",
-                "¿Te interesa conocer el funcionamiento de las computadoras?"
-            ],
-            "Ingeniería Eléctrica": [
-                "¿Te interesa cómo funciona la electricidad?",
-                "¿Te gustaría trabajar con redes eléctricas?"
-            ],
-            "Ingeniería Electrónica": [
-                "¿Te gustan los circuitos?",
-                "¿Te interesa la robótica?"
+            "Ingeniería en Sistemas Computacionales": [
+                "¿Te gusta resolver problemas usando la tecnología?",
+                "¿Pasas mucho tiempo en la computadora y disfrutas aprender cosas nuevas sobre ella?",
+                "¿Te interesa crear aplicaciones o páginas web?"
             ],
             "Ingeniería Industrial": [
-                "¿Te interesa optimizar procesos?",
-                "¿Te gustaría trabajar en fábricas o industrias?"
+                "¿Te gusta organizar y hacer que las cosas funcionen mejor?",
+                "¿Cuando ves un problema, piensas en diferentes formas de solucionarlo?",
+                "¿Te interesa saber cómo se hacen los productos que usas diariamente?"
+            ],
+            "Ingeniería Civil": [
+                "¿Te llaman la atención los edificios altos y las construcciones grandes?",
+                "¿Te gusta trabajar con las manos y crear cosas?",
+                "¿Te interesa participar en proyectos que beneficien a muchas personas?"
             ],
             "Ingeniería Mecánica": [
-                "¿Te interesa cómo funcionan las máquinas?",
-                "¿Te gusta el diseño mecánico?"
+                "¿Te gusta desarmar cosas para ver cómo funcionan?",
+                "¿Te interesan los carros, motos o cualquier máquina?",
+                "¿Eres bueno resolviendo problemas con objetos que se mueven?"
             ],
-            "Ingeniería Mecatrónica": [
-                "¿Te interesa la robótica?",
-                "¿Te gustan los sistemas automáticos?"
+            "Ingeniería Eléctrica": [
+                "¿Te has preguntado cómo llega la electricidad a tu casa?",
+                "¿Te gusta experimentar con aparatos electrónicos?",
+                "¿Te interesa entender cómo funcionan las cosas que se conectan a la luz?"
             ],
-            "Ingeniería en Sistemas Computacionales": [
-                "¿Te interesa el desarrollo de software?",
-                "¿Te gustaría trabajar en ciberseguridad?"
-            ],
-            "Arquitectura": [
-                "¿Te gusta el diseño de espacios?",
-                "¿Te interesa el dibujo técnico?"
-            ],
-            "Actuaría": [
-                "¿Te interesan los seguros y estadísticas?",
-                "¿Te gustan los modelos matemáticos?"
-            ],
-            "Ingeniería en Alimentos": [
-                "¿Te interesa la producción y conservación de alimentos?",
-                "¿Te gustaría trabajar en la industria alimentaria?",
-                "¿Te interesa la química de los alimentos?"
+            "Ingeniería Electrónica": [
+                "¿Te fascinan los celulares, videojuegos y gadgets tecnológicos?",
+                "¿Te gusta armar o reparar aparatos electrónicos?",
+                "¿Te interesa saber qué hay dentro de los dispositivos que usas?"
             ],
             "Ingeniería en Comunicaciones y Electrónica": [
-                "¿Te interesa cómo se transmiten señales electrónicas?",
-                "¿Te gustaría trabajar en telecomunicaciones?",
-                "¿Te interesan los sistemas electrónicos modernos?"
-            ],
-            "Ingeniería en Control y Automatización": [
-                "¿Te interesa automatizar procesos industriales?",
-                "¿Te gustaría diseñar sistemas de control?",
-                "¿Te interesan los sensores y actuadores?"
-            ],
-            "Ingeniería en Energía": [
-                "¿Te interesa cómo se genera y distribuye la energía?",
-                "¿Te gustaría trabajar con energías renovables?",
-                "¿Te interesa la eficiencia energética?"
-            ],
-            "Ingeniería en Informática": [
-                "¿Te gusta programar y resolver problemas con software?",
-                "¿Te interesa el diseño de bases de datos?",
-                "¿Te gustaría trabajar en desarrollo web o móvil?"
-            ],
-            "Ingeniería en Inteligencia Artificial": [
-                "¿Te interesa el aprendizaje automático?",
-                "¿Te gustaría crear sistemas que tomen decisiones?",
-                "¿Te interesa la ciencia de datos y el análisis predictivo?"
-            ],
-            "Ingeniería en Metalurgia y Materiales": [
-                "¿Te interesa estudiar y modificar materiales?",
-                "¿Te gustaría trabajar con metales y aleaciones?",
-                "¿Te interesan los procesos de fundición y tratamiento térmico?"
-            ],
-            "Ingeniería en Movilidad Urbana": [
-                "¿Te interesa mejorar el transporte en las ciudades?",
-                "¿Te gustaría diseñar soluciones de movilidad?",
-                "¿Te interesan los sistemas de transporte público?"
-            ],
-            "Ingeniería en Negocios Energéticos Sustentables": [
-                "¿Te interesa combinar energía y negocios?",
-                "¿Te gustaría desarrollar proyectos sustentables?",
-                "¿Te interesa el impacto ambiental de las energías?"
-            ],
-            "Ingeniería en Robótica Industrial": [
-                "¿Te interesa diseñar robots para líneas de producción?",
-                "¿Te gusta la automatización y control de máquinas?",
-                "¿Te gustaría integrar electrónica, mecánica y software?"
-            ],
-            "Ingeniería en Sistemas Ambientales": [
-                "¿Te preocupa el impacto ambiental de la industria?",
-                "¿Te interesa el tratamiento de residuos y aguas?",
-                "¿Te gustaría trabajar en sostenibilidad?"
-            ],
-            "Ingeniería en Sistemas Energéticos y Redes Inteligentes": [
-                "¿Te interesa mejorar la eficiencia energética?",
-                "¿Te gustaría trabajar con redes eléctricas inteligentes?",
-                "¿Te interesan las energías renovables y su integración?"
-            ],
-            "Ingeniería en Transporte": [
-                "¿Te interesa planear sistemas de transporte?",
-                "¿Te gustaría mejorar la logística y movilidad?",
-                "¿Te interesa la infraestructura vial?"
-            ],
-            "Ingeniería Farmacéutica": [
-                "¿Te interesa la producción de medicamentos?",
-                "¿Te gustaría trabajar en la industria farmacéutica?",
-                "¿Te interesa la química y la biotecnología?"
-            ],
-            "Ingeniería Ferroviaria": [
-                "¿Te interesa el transporte por trenes?",
-                "¿Te gustaría diseñar vías y trenes?",
-                "¿Te interesa la logística ferroviaria?"
-            ],
-            "Ingeniería Fotónica": [
-                "¿Te interesan los sistemas que usan luz y láseres?",
-                "¿Te gustaría trabajar con fibras ópticas?",
-                "¿Te interesa la comunicación óptica?"
-            ],
-            "Ingeniería Geofísica": [
-                "¿Te interesa estudiar la Tierra con tecnología?",
-                "¿Te gustaría trabajar en exploración sísmica?",
-                "¿Te interesan los fenómenos geológicos?"
-            ],
-            "Ingeniería Geológica": [
-                "¿Te interesa el estudio de rocas y suelos?",
-                "¿Te gustaría trabajar en minería o construcción?",
-                "¿Te interesan los procesos de formación terrestre?"
-            ],
-            "Ingeniería Matemática": [
-                "¿Te gusta aplicar las matemáticas a problemas reales?",
-                "¿Te interesa la modelación matemática?",
-                "¿Te gustaría trabajar en docencia o investigación científica?"
-            ],
-            "Ingeniería Mecatrónica": [
-                "¿Te interesa combinar electrónica y mecánica?",
-                "¿Te gustaría diseñar sistemas inteligentes?",
-                "¿Te gusta la automatización de procesos?"
-            ],
-            "Ingeniería Metalúrgica": [
-                "¿Te interesa trabajar con metales y materiales?",
-                "¿Te gustaría estudiar la resistencia de materiales?",
-                "¿Te interesa la industria siderúrgica?"
-            ],
-            "Ingeniería Petrolera": [
-                "¿Te interesa la extracción de petróleo?",
-                "¿Te gustaría trabajar en plataformas petroleras?",
-                "¿Te interesa la geología y la ingeniería de yacimientos?"
+                "¿Te llama la atención cómo funciona el internet y los celulares?",
+                "¿Te gusta estar al día con las nuevas tecnologías?",
+                "¿Te interesa cómo se transmiten los mensajes y videos por internet?"
             ],
             "Ingeniería Química Industrial": [
-                "¿Te interesa la transformación de materias primas?",
-                "¿Te gustaría trabajar en la industria química?",
-                "¿Te interesan los procesos de producción?"
+                "¿Te gustaban los experimentos en el laboratorio de química?",
+                "¿Te interesa saber cómo se fabrican productos como medicinas o cosméticos?",
+                "¿Te llama la atención transformar materiales para crear algo nuevo?"
             ],
-            "Ingeniería Química Petrolera": [
-                "¿Te interesa el procesamiento de hidrocarburos?",
-                "¿Te gustaría trabajar en refinerías?",
-                "¿Te interesa la ingeniería de procesos químicos?"
-            ],
-            "Ingeniería Telemática": [
-                "¿Te interesa la combinación de telecomunicaciones e informática?",
-                "¿Te gustaría trabajar con redes de datos?",
-                "¿Te interesan los servicios en la nube?"
-            ],
-            "Ingeniería Textil": [
-                "¿Te interesa el diseño y producción de telas?",
-                "¿Te gustaría trabajar en la industria de la moda?",
-                "¿Te interesan los materiales textiles innovadores?"
-            ],
-            "Licenciatura en Ciencias de Datos": [
-                "¿Te interesa analizar grandes cantidades de información?",
-                "¿Te gustaría trabajar con estadísticas y programación?",
-                "¿Te interesan los algoritmos de predicción?"
-            ],
-            "Licenciatura en Ciencias de la Informática": [
-                "¿Te interesa la teoría computacional y algoritmos?",
-                "¿Te gustaría trabajar en desarrollo de software?",
-                "¿Te interesa la inteligencia artificial y la seguridad informática?"
+            "Ingeniería Aeronáutica": [
+                "¿Te emocionas cuando ves aviones volando?",
+                "¿Te ha gustado armar modelos de aviones o cohetes?",
+                "¿Sueñas con viajar al espacio o trabajar con tecnología espacial?"
             ],
             "Licenciatura en Física y Matemáticas": [
-                "¿Te apasionan las ciencias exactas?",
-                "¿Te gustaría investigar fenómenos físicos y matemáticos?",
-                "¿Te interesa trabajar en docencia o investigación científica?"
-            ],
-            "Licenciatura en Matemática Algorítmica": [
-                "¿Te interesan los algoritmos y su optimización?",
-                "¿Te gusta resolver problemas complejos con lógica matemática?",
-                "¿Te gustaría trabajar en criptografía o inteligencia artificial?"
+                "¿Las matemáticas son una de tus materias favoritas?",
+                "¿Te gusta entender el 'por qué' de las cosas que pasan en la naturaleza?",
+                "¿Disfrutas resolviendo problemas complicados paso a paso?"
             ]
         }
     },
     "Ciencias Médico Biológicas": {
         "carreras": {
-            "Medicina": [
-                "¿Te gustaría ayudar a sanar personas?",
-                "¿Te interesa el cuerpo humano y sus enfermedades?",
-                "¿Te ves trabajando en un hospital?"
+            "Médico Cirujano y Partero": [
+                "¿Te gusta ayudar a las personas cuando se sienten mal?",
+                "¿Te interesa el cuerpo humano y cómo funciona?",
+                "¿Te sientes cómodo hablando con personas que están pasando por momentos difíciles?"
             ],
-            "Odontología": [
-                "¿Te interesa la salud bucal?",
-                "¿Te gustaría trabajar con dientes y encías?",
-                "¿Te gustaría tener tu propio consultorio dental?"
+            "Cirujano Dentista (Odontología)": [
+                "¿Te gusta trabajar con cuidado y precisión en tareas pequeñas?",
+                "¿Te interesa ayudar a las personas a tener una sonrisa bonita?",
+                "¿Eres paciente y te gusta hacer trabajos detallados?"
             ],
-            "Veterinaria": [
-                "¿Te gustan los animales?",
-                "¿Te gustaría cuidarlos o curarlos?",
-                "¿Te interesa la biología y el comportamiento animal?"
+            "Químico Bacteriólogo Parasitólogo": [
+                "¿Te gustaba usar el microscopio en las clases de biología?",
+                "¿Te interesa investigar y descubrir cosas que no se ven a simple vista?",
+                "¿Te gusta hacer experimentos y analizar resultados?"
+            ],
+            "Licenciatura en Enfermería": [
+                "¿Te gusta cuidar a las personas cuando están enfermas?",
+                "¿Eres una persona empática que se preocupa por el bienestar de otros?",
+                "¿Te sientes cómodo en hospitales o centros de salud?"
+            ],
+            "Ingeniería Biomédica": [
+                "¿Te interesan tanto la tecnología como la medicina?",
+                "¿Te gusta la idea de crear aparatos que ayuden a curar personas?",
+                "¿Te llama la atención combinar ciencias exactas con ciencias de la salud?"
+            ],
+            "Licenciatura en Optometría": [
+                "¿Te interesa ayudar a las personas a ver mejor?",
+                "¿Eres detallista y te gusta hacer exámenes o revisiones cuidadosas?",
+                "¿Te llama la atención trabajar con lentes y aparatos para medir la vista?"
+            ],
+            "Químico Farmacéutico Biólogo": [
+                "¿Te interesa cómo se hacen las medicinas?",
+                "¿Te gustaban las clases de química y biología?",
+                "¿Te llama la atención trabajar en laboratorios?"
+            ],
+            "Licenciatura en Nutrición": [
+                "¿Te interesa la relación entre la comida y la salud?",
+                "¿Te gusta cocinar o saber sobre alimentos saludables?",
+                "¿Te motiva ayudar a las personas a sentirse mejor a través de lo que comen?"
+            ],
+            "Ingeniería Biotecnológica": [
+                "¿Te interesa usar la tecnología para mejorar la vida de las personas?",
+                "¿Te llama la atención la biología y también la tecnología?",
+                "¿Te gusta la idea de crear productos naturales usando ciencia?"
+            ],
+            "Licenciatura en Psicología": [
+                "¿Te gusta escuchar a tus amigos cuando tienen problemas?",
+                "¿Te interesa entender por qué las personas actúan como lo hacen?",
+                "¿Eres bueno dando consejos y ayudando a otros a sentirse mejor?"
             ]
         }
     },
     "Ciencias Sociales y Administrativas": {
         "carreras": {
-            "Derecho": [
-                "¿Te interesa la justicia y las leyes?",
-                "¿Te gustaría defender a personas o causas?",
-                "¿Te ves trabajando en juzgados o despachos jurídicos?"
+            "Contador Público": [
+                "¿Eres bueno con los números y te gusta hacer cuentas?",
+                "¿Te gusta tener todo organizado y en orden?",
+                "¿Te interesa ayudar a las personas o empresas con su dinero?"
             ],
-            "Administración": [
-                "¿Te interesa cómo funcionan las empresas?",
-                "¿Te gustaría liderar un equipo de trabajo?",
-                "¿Te interesa la gestión de recursos humanos o financieros?"
+            "Licenciatura en Administración Industrial": [
+                "¿Te gusta liderar grupos y organizar actividades?",
+                "¿Eres bueno coordinando a tus compañeros para hacer proyectos?",
+                "¿Te interesa hacer que las cosas funcionen mejor en tu escuela o casa?"
             ],
-            "Psicología": [
-                "¿Te interesa el comportamiento humano?",
-                "¿Te gustaría ayudar a las personas a resolver sus problemas?",
-                "¿Te interesa el estudio de la mente y las emociones?"
+            "Licenciatura en Relaciones Comerciales": [
+                "¿Eres bueno convenciendo a las personas o vendiendo cosas?",
+                "¿Te gusta conocer gente nueva y hacer amigos fácilmente?",
+                "¿Te interesa saber qué productos le gustan a las personas?"
+            ],
+            "Licenciatura en Negocios Internacionales": [
+                "¿Te gusta conocer sobre otros países y sus culturas?",
+                "¿Te interesa viajar y trabajar con personas de diferentes lugares?",
+                "¿Te llama la atención cómo se compran y venden cosas entre países?"
+            ],
+            "Licenciatura en Ciencias de la Informática": [
+                "¿Te gusta organizar información y hacer listas?",
+                "¿Eres bueno usando computadoras y programas?",
+                "¿Te interesa ayudar a las personas a encontrar información fácilmente?"
+            ],
+            "Licenciatura en Administración": [
+                "¿Te gusta tomar decisiones y resolver problemas?",
+                "¿Tus amigos te piden ayuda para organizar eventos o actividades?",
+                "¿Te interesa tener tu propio negocio algún día?"
+            ],
+            "Licenciatura en Trabajo Social": [
+                "¿Te gusta ayudar a personas que tienen problemas?",
+                "¿Te interesa trabajar con niños, adultos mayores o familias?",
+                "¿Te motiva hacer que tu comunidad sea un lugar mejor?"
+            ],
+            "Licenciatura en Turismo": [
+                "¿Te gusta viajar y conocer lugares nuevos?",
+                "¿Disfrutas organizando paseos o actividades divertidas?",
+                "¿Te interesa mostrarle a otros los lugares bonitos que conoces?"
+            ],
+            "Licenciatura en Comercio Internacional": [
+                "¿Te interesa cómo llegan los productos de otros países a México?",
+                "¿Te gusta la idea de trabajar en aeropuertos o fronteras?",
+                "¿Te llama la atención el intercambio de productos entre países?"
+            ],
+            "Licenciatura en Administración y Desarrollo Empresarial": [
+                "¿Te gusta tener ideas nuevas para negocios?",
+                "¿Te interesa ayudar a que las empresas pequeñas crezcan?",
+                "¿Eres creativo y te gusta pensar en soluciones innovadoras?"
             ]
         }
     }

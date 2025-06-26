@@ -255,7 +255,7 @@ export default function QuizResults() {
               </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-light mb-2">250+</div>
+              <div className="text-4xl md:text-5xl font-light mb-2">75+</div>
               <div className="text-gray-400 text-sm">
                 Carreras Analizadas
                 <br />

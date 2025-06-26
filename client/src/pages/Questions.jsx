@@ -475,11 +475,7 @@ export default function Questions() {
             className="text-center text-neutral-300 text-5xl md:text-6xl font-thin mb-2 flex items-center justify-center"
             variants={titleElementVariants}
           >
-            {currentPhase === "general"
-              ? "Fase 1"
-              : currentPhase === "rama_specific"
-              ? "Fase 2"
-              : "Desempate"}
+            {currentPhase === "general" ? "Fase 1" : "Fase 2"}
           </motion.span>
         </motion.h1>
         {/* Subtítulo de la Fase */}
