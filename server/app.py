@@ -7,37 +7,39 @@ CORS(app, origins=["https://voca-ia.onrender.com"])
 # Preguntas generales por rama
 preguntas_generales = {
     "Ingeniería y Ciencias Físico Matemáticas": [
-        "¿Te interesa cómo funcionan las máquinas?",
-        "¿Disfrutas resolver problemas matemáticos complejos?",
-        "¿Te gusta conocer las nuevas tecnologías?",
-        "¿Te interesa conocer cómo se crean las nuevas tecnologías?",
-        "¿Te gustan la física o las matemáticas?",
-        "¿Te gusta realizar experimentos?",
-        "¿Te gustaría diseñar soluciones tecnológicas para problemas cotidianos?",
-        "¿Te interesa la investigación científica y el desarrollo de nuevas teorías?",
-        "¿Te motiva trabajar en proyectos de innovación tecnológica?"
-    ],
-    "Ciencias Médico Biológicas": [
-        "¿Te interesa el funcionamiento del cuerpo humano?",
-        "¿Te gustaría trabajar en un hospital o laboratorio clínico?",
-        "¿Te preocupas por la salud y el bienestar de las personas?",
-        "¿Te interesan los animales?",
-        "¿Te gustaría investigar sobre nuevas enfermedades y tratamientos?",
-        "¿Te interesa la genética y la biotecnología?",
-        "¿Te gustaría participar en campañas de salud pública?"
-    ],
-    "Ciencias Sociales y Administrativas": [
-        "¿Te interesa liderar equipos o proyectos?",
-        "¿Consideras que tienes la capacidad de resolver problemas entre equipos de trabajo?",
-        "¿Eres organizado con tareas y tiempos?",
-        "¿Te gusta exponer en las clases?",
-        "¿Te gusta comunicarte con las personas y trabajar en equipo?",
-        "¿Disfrutas analizar la sociedad y su funcionamiento?",
-        "¿Te interesa comprender el comportamiento de grupos sociales?",
-        "¿Te gustaría emprender tu propio negocio?",
-        "¿Te motiva influir en políticas públicas o sociales?"
-    ]
-}
+            "¿Te gusta desarmar cosas para ver cómo funcionan por dentro?",
+            "¿Disfrutas resolviendo problemas de matemáticas aunque sean difíciles?",
+            "¿Te emocionas cuando sale una nueva app o tecnología?",
+            "¿Te has preguntado cómo se inventaron las cosas que usas todos los días?",
+            "¿Matemáticas y física son de tus materias favoritas?",
+            "¿Te gustaban los experimentos en el laboratorio de ciencias?",
+            "¿Te gusta la idea de crear algo que haga la vida más fácil?",
+            "¿Te interesa descubrir cosas nuevas sobre cómo funciona el mundo?",
+            "¿Te emociona la idea de trabajar en proyectos que nadie ha hecho antes?"
+        ],
+        "Ciencias Médico Biológicas": [
+            "¿Te llama la atención saber cómo funciona tu cuerpo?",
+            "¿Te sientes cómodo visitando hospitales o clínicas?",
+            "¿Cuando alguien se siente mal, tu primer instinto es ayudar?",
+            "¿Te gustan los animales y te preocupas por su bienestar?",
+            "¿Te interesa saber sobre nuevas enfermedades que salen en las noticias?",
+            "¿Te fascina la idea de que se pueda cambiar el ADN de las personas?",
+            "¿Te gustaría ayudar a que más gente tenga acceso a servicios de salud?",
+            "¿Te interesa entender por qué algunas personas se enferman y otras no?",
+            "¿Te gusta la biología y aprender sobre los seres vivos?"
+        ],
+        "Ciencias Sociales y Administrativas": [
+            "¿Tus amigos te eligen como líder en proyectos escolares?",
+            "¿Eres bueno mediando cuando tus amigos tienen problemas?",
+            "¿Te gusta tener tu cuarto, mochila y horarios bien organizados?",
+            "¿Te sientes cómodo hablando frente a toda la clase?",
+            "¿Prefieres trabajar en equipo que hacer las cosas solo?",
+            "¿Te gusta observar cómo se comporta la gente en diferentes situaciones?",
+            "¿Te interesa entender por qué algunas personas son populares y otras no?",
+            "¿Has pensado en tener tu propio negocio o vender algo?",
+            "¿Te gustaría poder cambiar las reglas de tu escuela o comunidad?"
+        ]
+    }
 
 # Carreras y preguntas específicas por rama
 ramas = {
