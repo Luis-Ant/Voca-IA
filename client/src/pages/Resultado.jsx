@@ -237,9 +237,11 @@ export default function QuizResults() {
               ) => (
                 <div
                   key={index}
-                  className="bg-gray-300 rounded-lg p-4 border-2 border-gray-300 transition-all duration-500 ease-in-out hover:border-gray-600 hover:bg-zinc-950 hover:text-neutral-300"
+                  className="bg-gray-400 rounded-lg p-4 border-2 border-gray-300 transition-all duration-500 ease-in-out hover:border-gray-600 hover:bg-zinc-950"
                 >
-                  <h3 className="text-xl font-thin text-neutral-950">{item}</h3>
+                  <h3 className="text-xl font-medium text-neutral-950 hover:text-neutral-300">
+                    {item}
+                  </h3>
                 </div>
               )
             )}
