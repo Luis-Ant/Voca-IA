@@ -193,7 +193,7 @@ export default function Home() {
               ¡Empieza Ahora!
             </motion.button>
             <motion.div className="text-gray-500 hover:text-gray-300 transition-colors duration-300 text-sm md:text-base text-center">
-              Tu futuro profesional comienza aquí.
+              Tu futuro profesional comienza aquí. Deploy test Vercel: 12/03/2026.
             </motion.div>
           </motion.footer>
         </motion.div>
