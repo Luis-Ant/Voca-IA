@@ -1,3 +1,0 @@
-Flask==2.3.3
-flask-cors==6.0.1  # solo si haces llamadas desde el frontend
-gunicorn==23.0.0
