@@ -20,7 +20,9 @@ Objetivos específicos de la migración:
 
 ---
 
-## 2) Estado actual resumido (Vite+React + Flask)
+## 2) Estado base previo (Vite+React + Flask)
+
+> Nota: esta sección es contexto histórico de migración. Desde Fase 2, `client/` y `server/` fueron removidos del repositorio y la app activa es Next en raíz.
 
 ### Frontend actual (Vite + React)
 
