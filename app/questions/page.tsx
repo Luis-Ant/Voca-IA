@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 type Respuesta = "sí" | "no";
@@ -73,25 +73,40 @@ export default function QuestionsPage() {
   const [ramaSeleccionada, setRamaSeleccionada] = useState<string | null>(null);
   const [ramasEmpatadas, setRamasEmpatadas] = useState<string[]>([]);
 
-  useEffect(() => {
-    async function cargarPreguntas() {
-      try {
-        const res = await fetch("/api/preguntas-generales");
-        const data = (await res.json()) as Record<string, string[]>;
-        setPreguntasGenerales(flattenGenerales(data));
-      } catch {
-        setError("No se pudieron cargar las preguntas.");
-      } finally {
-        setLoading(false);
-      }
+  async function readJsonSafe<T>(res: Response): Promise<T | null> {
+    try {
+      return (await res.json()) as T;
+    } catch {
+      return null;
     }
+  }
+
+  async function cargarPreguntas() {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/preguntas-generales");
+      const data = await readJsonSafe<Record<string, string[]>>(res);
+
+      if (!res.ok || !data) {
+        setError("No se pudieron cargar las preguntas. Probá reintentar.");
+        return;
+      }
+
+      setPreguntasGenerales(flattenGenerales(data));
+    } catch {
+      setError("No se pudieron cargar las preguntas. Probá reintentar.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
     void cargarPreguntas();
   }, []);
 
-  const listaActual = useMemo(() => {
-    if (fase === "general") return preguntasGenerales;
-    return preguntasCarrera;
-  }, [fase, preguntasGenerales, preguntasCarrera]);
+  const listaActual = fase === "general" ? preguntasGenerales : preguntasCarrera;
 
   const actual = listaActual[indice];
 
@@ -108,10 +123,15 @@ export default function QuestionsPage() {
       body: JSON.stringify(payload),
     });
 
-    const data = (await res.json()) as ResultadoRamas | { error: string };
+    const data = await readJsonSafe<ResultadoRamas | { error: string }>(res);
+
+    if (!data) {
+      setError("Respuesta inválida evaluando ramas. Probá reintentar.");
+      return;
+    }
 
     if (!res.ok || "error" in data) {
-      setError("error" in data ? data.error : "Error evaluando ramas.");
+      setError("error" in data ? data.error : "Error evaluando ramas. Probá reintentar.");
       return;
     }
 
@@ -150,10 +170,15 @@ export default function QuestionsPage() {
       body: JSON.stringify(payload),
     });
 
-    const data = (await res.json()) as ResultadoFinal | { error: string };
+    const data = await readJsonSafe<ResultadoFinal | { error: string }>(res);
+
+    if (!data) {
+      setError("Respuesta inválida evaluando carrera. Probá reintentar.");
+      return;
+    }
 
     if (!res.ok || "error" in data) {
-      setError("error" in data ? data.error : "Error evaluando carrera.");
+      setError("error" in data ? data.error : "Error evaluando carrera. Probá reintentar.");
       return;
     }
 
@@ -189,6 +214,27 @@ export default function QuestionsPage() {
     }
   }
 
+  async function reintentar() {
+    if (fase === "general" && preguntasGenerales.length === 0) {
+      await cargarPreguntas();
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      if (fase === "general") {
+        await evaluarRamas();
+      } else {
+        await evaluarCarrera();
+      }
+    } catch {
+      setError("No se pudo reintentar. Volvé al inicio.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   if (loading) {
     return (
       <main>
@@ -201,6 +247,10 @@ export default function QuestionsPage() {
     return (
       <main>
         <p className="error">{error}</p>
+        <div className="row">
+          <button onClick={() => void reintentar()}>Reintentar</button>
+          <button className="secondary" onClick={() => router.push("/")}>Volver al inicio</button>
+        </div>
       </main>
     );
   }

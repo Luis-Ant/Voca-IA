@@ -40,7 +40,19 @@ Abrir `http://localhost:3000`.
 
 ```bash
 npm test
+npm run test:smoke
 npx tsc --noEmit
+```
+
+## Smoke tests ejecutables
+
+- Archivo: `tests/smoke/api.smoke.test.ts`
+- Manual complementario: `tests/smoke/flujo-migracion.smoke.md`
+
+Ejecutar:
+
+```bash
+npm run test:smoke
 ```
 
 ## Documentación
