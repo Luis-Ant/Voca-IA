@@ -111,4 +111,6 @@ npm run test:smoke
 - [`docs/spec-migracion-next.md`](docs/spec-migracion-next.md)
 - [`docs/api-contract.md`](docs/api-contract.md)
 - [`docs/dod-release-checklist.md`](docs/dod-release-checklist.md)
+- [`docs/release-checklist.md`](docs/release-checklist.md)
 - [`docs/operacion-produccion.md`](docs/operacion-produccion.md)
+- [`docs/pr-comment-phase5.md`](docs/pr-comment-phase5.md)
