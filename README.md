@@ -67,3 +67,30 @@ python app.py
 ## Próximo hito
 
 Iniciar la reescritura directa a Next.js según `docs/spec-migracion-next.md`, siguiendo los criterios de `docs/dod-release-checklist.md`.
+
+## Next migration status
+
+- ✅ Base Next.js 15 + TypeScript creada en raíz.
+- ✅ Flujo Home (`/`) → Questions (`/questions`) → Results (`/results`) operativo en App Router.
+- ✅ API serverless canónica:
+  - `GET /api/preguntas-generales`
+  - `POST /api/evaluar-ramas`
+  - `POST /api/evaluar-carrera`
+- ✅ Lógica de dominio desacoplada en `src/domain`.
+- ✅ Validación runtime con Zod en Route Handlers.
+- ✅ `client/` y `server/` se mantienen como legacy (sin borrar en esta fase).
+
+### Correr nueva app Next (sin build)
+
+```bash
+npm install
+npm run dev
+```
+
+Abrir `http://localhost:3000`.
+
+### Tests unitarios mínimos (dominio)
+
+```bash
+npm test
+```
