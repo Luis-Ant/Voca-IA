@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:smoke": "vitest run tests/smoke/api.smoke.test.ts"
   },
   "dependencies": {
     "next": "^15.0.0",

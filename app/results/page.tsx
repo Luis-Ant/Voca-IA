@@ -12,21 +12,50 @@ type Resultado = {
 
 export default function ResultsPage() {
   const [resultado, setResultado] = useState<Resultado | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  function isResultado(value: unknown): value is Resultado {
+    if (!value || typeof value !== "object") return false;
+    const candidate = value as Partial<Resultado>;
+    const statusValido =
+      candidate.status === "resultado_final" ||
+      candidate.status === "empate_carrera" ||
+      candidate.status === "no_carreras_evaluadas";
+    return statusValido && typeof candidate.message === "string";
+  }
 
   useEffect(() => {
-    const raw = sessionStorage.getItem("voca-ia-resultado");
-    if (!raw) return;
-    setResultado(JSON.parse(raw) as Resultado);
+    try {
+      const raw = sessionStorage.getItem("voca-ia-resultado");
+      if (!raw) return;
+
+      const parsed = JSON.parse(raw) as unknown;
+      if (!isResultado(parsed)) {
+        sessionStorage.removeItem("voca-ia-resultado");
+        setError("Resultado inválido. Hacé el quiz de nuevo.");
+        return;
+      }
+
+      setResultado(parsed);
+    } catch {
+      sessionStorage.removeItem("voca-ia-resultado");
+      setError("Resultado corrupto. Hacé el quiz de nuevo.");
+    }
   }, []);
 
   if (!resultado) {
     return (
       <main>
         <h1>Results</h1>
-        <p className="error">No hay resultado. Hacé el quiz primero.</p>
-        <Link href="/" className="btn">
-          Volver al inicio
-        </Link>
+        <p className="error">{error ?? "No hay resultado. Hacé el quiz primero."}</p>
+        <div className="row">
+          <Link href="/questions" className="btn">
+            Reintentar quiz
+          </Link>
+          <Link href="/" className="btn secondary">
+            Volver al inicio
+          </Link>
+        </div>
       </main>
     );
   }
