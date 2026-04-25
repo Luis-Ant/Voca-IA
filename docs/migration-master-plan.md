@@ -62,10 +62,10 @@ El repositorio ya es **Next-only**. `client/` y `server/` legacy fueron removido
 | Fase 1 — Next base + dominio | DONE | Next.js 15, App Router, Route Handlers, dominio puro, tests unitarios y AGENTS por capas completados. |
 | Fase 2 — Remoción legacy | DONE | `client/` y `server/` removidos. Repo consolidado como Next-only. |
 | Fase 3 — Hardening UX/API | DONE | Manejo de errores UX/API reforzado y smoke tests API ejecutables agregados. |
-| Fase 4 — Preparación Vercel | BLOCKED | Configuración, headers, metadata y docs de producción/rollback listas localmente. Bloqueado solo por push SSH pendiente. |
-| Fase 5 — Release humano final | BLOCKED | Checklist final y comentario PR listos localmente. Falta push, preview, validación prod y merge. |
+| Fase 4 — Preparación Vercel | DONE | Configuración, headers, metadata y docs de producción/rollback listas. |
+| Fase 5 — Release humano final | DONE | Checklist final, comentario PR, plan maestro e índice listos. |
 
-No hay fases funcionales pendientes dentro del repo local. Lo pendiente es publicación/validación remota.
+No hay fases funcionales pendientes. Lo pendiente operativo es validar Preview/Prod en Vercel antes del cierre final.
 
 ## 5. Commits relevantes conocidos
 
@@ -78,7 +78,7 @@ No hay fases funcionales pendientes dentro del repo local. Lo pendiente es publi
 
 ## 6. Validaciones requeridas
 
-Ejecutar antes de push, PR, preview y cierre:
+Ejecutar antes de PR, preview, producción y cierre:
 
 ```bash
 npm test
@@ -94,43 +94,32 @@ npm run build
 
 ## 7. Estado actual exacto
 
-- Rama actual: `feat/next-rewrite-phase-1`.
-- Tracking: `origin/feat/next-rewrite-phase-1`.
-- Estado git conocido: rama local **ahead 2**.
-- Commits locales pendientes de push:
-  - `6cc1361`
-  - `32bc072`
-- Bloqueante actual: **push por SSH pendiente**.
-- No hacer push hasta que el acceso SSH vuelva.
+- Rama de trabajo original: `feat/next-rewrite-phase-1`.
+- Estrategia final: PRs secuenciales por fase para trazabilidad.
 - No hay que tocar lógica de app para cerrar planeación.
+- Validación humana pendiente: Preview y Producción en Vercel.
 
-## 8. Próximos pasos cuando vuelva push
+## 8. Próximos pasos operativos
 
-1. Confirmar rama:
-   ```bash
-   git status --short --branch
-   ```
-2. Confirmar que sigue `ahead 2` y sin cambios inesperados.
-3. Ejecutar validaciones locales:
+1. Ejecutar validaciones locales:
    ```bash
    npm test
    npm run test:smoke
    npx tsc --noEmit
    ```
-4. Hacer push de `feat/next-rewrite-phase-1`.
-5. Abrir o actualizar PR.
-6. Pegar comentario usando `docs/pr-comment-phase5.md`.
-7. Esperar preview de Vercel.
-8. Ejecutar smoke manual de `tests/smoke/flujo-migracion.smoke.md` en preview.
-9. Si preview da OK, promover a producción.
-10. Repetir smoke manual en producción.
-11. Mergear solo con preview y producción validadas.
+2. Abrir/actualizar PR de la fase vigente.
+3. Pegar comentario usando `docs/pr-comment-phase5.md` en la PR final.
+4. Esperar preview de Vercel.
+5. Ejecutar smoke manual de `tests/smoke/flujo-migracion.smoke.md` en preview.
+6. Si preview da OK, promover a producción.
+7. Repetir smoke manual en producción.
+8. Mergear solo con preview y producción validadas.
 
 ## 9. Riesgos y mitigaciones
 
 | Riesgo | Mitigación |
 |---|---|
-| Push SSH sigue bloqueado | No reescribir historia. Resolver acceso y pushear la rama actual. |
+| Drift entre PRs secuenciales | Mergear fases en orden y revalidar después de cada merge. |
 | Drift entre docs | Usar este plan como estado global; usar `docs/planning-index.md` para elegir documento. |
 | Regresión de contrato API | Ejecutar `npm run test:smoke` y revisar `docs/api-contract.md`. |
 | Regresión de flujo UX | Ejecutar smoke manual en preview y prod. |
@@ -141,8 +130,7 @@ npm run build
 
 La migración queda cerrada al 100% cuando:
 
-- La rama `feat/next-rewrite-phase-1` está pusheada.
-- La PR existe o está actualizada con contexto claro.
+- Las PRs de fase fueron creadas con contexto claro.
 - `npm test` está verde.
 - `npm run test:smoke` está verde.
 - `npx tsc --noEmit` está verde.

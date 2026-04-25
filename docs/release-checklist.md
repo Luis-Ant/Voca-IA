@@ -2,42 +2,41 @@
 
 Estado global vigente: `docs/migration-master-plan.md`.
 
-Estado de esta fase: **listo para release humano**.
-
-Bloqueante actual: **falta push de la rama local por bloqueo SSH**.
+Estado de esta fase: **listo para validación humana en Vercel**.
 
 ## 1. Qué está listo hoy
 
-- Fases 1-5 implementadas localmente.
+- Fases 1-5 implementadas y separadas en PRs por trazabilidad.
 - Validación local requerida ejecutable:
   - `npm test`
   - `npm run test:smoke`
   - `npx tsc --noEmit`
-- Documentación operativa lista para hacer release apenas se destrabe el push.
+- Documentación operativa lista para preview, producción y merge final.
 
-## 2. Push pendiente
+## 2. PRs y trazabilidad
 
-Hacer esto apenas vuelva el acceso SSH:
+Cada fase debe tener PR propia y issue aprobado.
 
-1. Verificar rama actual correcta.
-2. Verificar cambios esperados con `git status`.
-3. Pushear la rama local pendiente al remoto.
-4. Confirmar que el commit local de Fase 4 y los cambios de Fase 5 quedaron en remoto.
-5. Abrir o actualizar la PR.
-6. Publicar comentario de estado usando `docs/pr-comment-phase5.md`.
+1. Fase 1: core Next.
+2. Fase 2: limpieza legacy.
+3. Fase 3: hardening + smoke tests.
+4. Fase 4: preparación Vercel.
+5. Fase 5: release/planning final.
+
+Usar `docs/pr-comment-phase5.md` como resumen para la última PR.
 
 ## 3. Release exacto: preview -> prod -> merge
 
-### A. Antes del push
+### A. Antes de validar preview
 
 - [ ] `npm test` verde.
 - [ ] `npm run test:smoke` verde.
 - [ ] `npx tsc --noEmit` verde.
-- [ ] Sin cambios locales inesperados.
+- [ ] PRs de fases previas mergeadas.
 
-### B. Después del push
+### B. Preview
 
-- [ ] PR creada o actualizada.
+- [ ] PR creada o actualizada para la fase vigente.
 - [ ] Preview de Vercel generada para la rama correcta.
 - [ ] URL de preview visible en la PR.
 
@@ -91,13 +90,12 @@ Hacer merge recién si:
 
 Orden recomendado:
 
-1. Push.
-2. PR.
-3. Preview.
-4. Validación preview.
-5. Promote a prod.
-6. Validación prod.
-7. Merge.
+1. PR.
+2. Preview.
+3. Validación preview.
+4. Promote a prod.
+5. Validación prod.
+6. Merge.
 
 ## 4. Validación manual exacta en preview y prod
 
@@ -136,7 +134,6 @@ Si preview pasa, repetir igual en prod.
 
 Esta fase termina bien cuando:
 
-- rama pueda pushearse,
 - preview quede validada,
 - prod quede validada,
 - y la PR quede lista para merge sin dudas operativas.

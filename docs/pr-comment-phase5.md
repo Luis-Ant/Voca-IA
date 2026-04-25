@@ -2,9 +2,9 @@
 
 ## Estado
 
-- Fase 5 lista localmente.
-- Queda listo release humano.
-- Bloqueante actual: push pendiente por SSH.
+- Fase 5 lista.
+- Planeación final centralizada.
+- Release humano listo para Preview -> Prod -> Merge.
 
 ## Validación local
 
@@ -12,7 +12,7 @@
 - `npm run test:smoke` ✅
 - `npx tsc --noEmit` ✅
 
-## Qué validar al destrabarse el push
+## Qué validar ahora
 
 1. Generar preview.
 2. Ejecutar smoke manual en preview.
