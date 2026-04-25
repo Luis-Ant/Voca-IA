@@ -2,6 +2,8 @@
 
 Documento corto para deploy y rollback en **Vercel**.
 
+Checklist operativo final: `docs/release-checklist.md`.
+
 ## 1. Prerequisitos
 
 - Repo conectado a Vercel.
@@ -24,7 +26,8 @@ npx tsc --noEmit
 4. Confirmar que no haya env vars nuevas requeridas para v1.
 5. Lanzar deploy preview.
 6. Ejecutar checklist manual de `tests/smoke/flujo-migracion.smoke.md` sobre la preview.
-7. Si todo da bien, promover a producción.
+7. Seguir go/no-go de `docs/release-checklist.md`.
+8. Si todo da bien, promover a producción.
 
 ## 3. Qué validar post deploy
 

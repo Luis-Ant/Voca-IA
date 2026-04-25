@@ -106,9 +106,13 @@ npm run test:smoke
 
 ## Documentación
 
+- [`docs/migration-master-plan.md`](docs/migration-master-plan.md)
+- [`docs/planning-index.md`](docs/planning-index.md)
 - [`docs/prd.md`](docs/prd.md)
 - [`docs/adr/001-nextjs-serverless-v1.md`](docs/adr/001-nextjs-serverless-v1.md)
 - [`docs/spec-migracion-next.md`](docs/spec-migracion-next.md)
 - [`docs/api-contract.md`](docs/api-contract.md)
 - [`docs/dod-release-checklist.md`](docs/dod-release-checklist.md)
+- [`docs/release-checklist.md`](docs/release-checklist.md)
 - [`docs/operacion-produccion.md`](docs/operacion-produccion.md)
+- [`docs/pr-comment-phase5.md`](docs/pr-comment-phase5.md)
