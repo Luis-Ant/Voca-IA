@@ -1,9 +1,14 @@
 import "./globals.css";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-export const metadata = {
-  title: "Voca-IA",
-  description: "Orientación vocacional",
+export const metadata: Metadata = {
+  title: {
+    default: "Voca-IA",
+    template: "%s | Voca-IA",
+  },
+  description: "Orientación vocacional simple para explorar ramas y carreras.",
+  applicationName: "Voca-IA",
 };
 
 type Props = { children: ReactNode };
