@@ -1,5 +1,7 @@
 # Release humano final — Voca-IA
 
+Estado global vigente: `docs/migration-master-plan.md`.
+
 Estado de esta fase: **listo para release humano**.
 
 Bloqueante actual: **falta push de la rama local por bloqueo SSH**.
