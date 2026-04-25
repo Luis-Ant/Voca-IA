@@ -1,86 +1,33 @@
 # Voca-IA
 
-Plataforma de orientación vocacional enfocada en comunidad educativa.
+Plataforma de orientación vocacional.
 
-## Estado del proyecto
+## Estado actual
 
-- **Estado actual (implementado):** frontend en React + Vite (`client/`) y API en Flask (`server/`).
-- **Dirección arquitectónica definida:** migración directa a **Next.js + Route Handlers serverless en Vercel** (sin DB obligatoria en v1).
+Repositorio consolidado en **Next.js 15 + App Router + Route Handlers** (TypeScript).
 
-La documentación de producto/arquitectura ya está creada para guiar la migración.
+## Stack
 
-## Documentación esencial
+- Next.js 15
+- React 19
+- TypeScript
+- Zod (validación runtime)
 
-- [`docs/prd.md`](docs/prd.md) — PRD ligero v1 (objetivos, alcance, KPIs, riesgos)
-- [`docs/adr/001-nextjs-serverless-v1.md`](docs/adr/001-nextjs-serverless-v1.md) — decisión arquitectónica principal
-- [`docs/spec-migracion-next.md`](docs/spec-migracion-next.md) — plan técnico por fases
-- [`docs/api-contract.md`](docs/api-contract.md) — contrato API canónico v1
-- [`docs/dod-release-checklist.md`](docs/dod-release-checklist.md) — Definition of Done + checklist de release
+## Flujo funcional
 
-## Flujo funcional actual
-
-1. `Home` → inicio del quiz
-2. `Questions` → fase general por ramas
-3. Evaluación de ramas:
-   - rama única, o
-   - empate de ramas (desempate)
+1. `Home` (`/`)
+2. `Questions` (`/questions`)
+3. Evaluación de ramas (incluye desempate)
 4. Evaluación de carreras
-5. `Results` → carrera sugerida o empate de carreras
+5. `Results` (`/results`)
 
-## Estructura del repositorio
+## API
 
-```txt
-Voca-IA/
-├─ client/   # Frontend React + Vite (estado actual)
-├─ server/   # API Flask (estado actual)
-└─ docs/     # Documentación guía para migración a Next.js
-```
+- `GET /api/preguntas-generales`
+- `POST /api/evaluar-ramas`
+- `POST /api/evaluar-carrera`
 
-## Desarrollo local (estado actual)
-
-### Frontend
-
-```bash
-cd client
-npm install
-npm run dev
-```
-
-### Backend
-
-```bash
-cd server
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
-
-## Principios de v1 (migración)
-
-- Sin autenticación obligatoria
-- Sin base de datos obligatoria
-- Dominio de negocio desacoplado del transporte HTTP
-- Contratos API claros y tipados
-- Despliegue simple en Vercel
-
-## Próximo hito
-
-Iniciar la reescritura directa a Next.js según `docs/spec-migracion-next.md`, siguiendo los criterios de `docs/dod-release-checklist.md`.
-
-## Next migration status
-
-- ✅ Base Next.js 15 + TypeScript creada en raíz.
-- ✅ Flujo Home (`/`) → Questions (`/questions`) → Results (`/results`) operativo en App Router.
-- ✅ API serverless canónica:
-  - `GET /api/preguntas-generales`
-  - `POST /api/evaluar-ramas`
-  - `POST /api/evaluar-carrera`
-- ✅ Lógica de dominio desacoplada en `src/domain`.
-- ✅ Validación runtime con Zod en Route Handlers.
-- ✅ `client/` y `server/` se mantienen como legacy (sin borrar en esta fase).
-
-### Correr nueva app Next (sin build)
+## Desarrollo local
 
 ```bash
 npm install
@@ -89,8 +36,17 @@ npm run dev
 
 Abrir `http://localhost:3000`.
 
-### Tests unitarios mínimos (dominio)
+## Validación (sin build)
 
 ```bash
 npm test
+npx tsc --noEmit
 ```
+
+## Documentación
+
+- [`docs/prd.md`](docs/prd.md)
+- [`docs/adr/001-nextjs-serverless-v1.md`](docs/adr/001-nextjs-serverless-v1.md)
+- [`docs/spec-migracion-next.md`](docs/spec-migracion-next.md)
+- [`docs/api-contract.md`](docs/api-contract.md)
+- [`docs/dod-release-checklist.md`](docs/dod-release-checklist.md)
